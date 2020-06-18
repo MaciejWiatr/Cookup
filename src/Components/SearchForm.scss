@@ -1,0 +1,17 @@
+.search__container {
+    width: 100%;
+    height: 2rem;
+    margin: 1rem 0;
+
+    .search__form {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+
+        input {
+            box-sizing: border-box;
+            height: 100%;
+        }
+    }
+}
