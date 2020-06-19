@@ -5,9 +5,8 @@ import allReducers from "./reducer";
 import persistState from "redux-localstorage";
 
 const enchancers = compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
-    persistState()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // persistState()
 );
 
 const store = createStore(allReducers, enchancers);
