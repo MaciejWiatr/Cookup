@@ -11,6 +11,10 @@ const SearchForm = (props) => {
 
     const dispatch = useDispatch();
 
+    const handleQueryInput = (event) => {
+        dispatch(updateQuery(event.target.value));
+    };
+
     const fetchRecipes = async (q) => {
         if (!q) {
             return;
@@ -61,7 +65,7 @@ const SearchForm = (props) => {
                     `}
                     type="text"
                     name="q"
-                    onChange={(e) => dispatch(updateQuery(e.target.value))}
+                    onChange={handleQueryInput}
                     value={query ? query : ""}
                     placeholder="Search"
                 />

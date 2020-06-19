@@ -2,7 +2,7 @@ var CACHE_NAME = "cookup";
 var urlsToCache = ["/", "/completed"];
 
 // Install a service worker
-self.addEventListener("install", (event) => {
+this.addEventListener("install", (event) => {
     // Perform install steps
     event.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
@@ -13,7 +13,7 @@ self.addEventListener("install", (event) => {
 });
 
 // Cache and return requests
-self.addEventListener("fetch", (event) => {
+this.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then(function (response) {
             // Cache hit - return response
@@ -26,7 +26,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 // Update a service worker
-self.addEventListener("activate", (event) => {
+this.addEventListener("activate", (event) => {
     var cacheWhitelist = ["cookup"];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
