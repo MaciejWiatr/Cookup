@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-const Recipe = ({ label, url, image, calories, ingredients }) => {
+const Recipe = ({ label, url, image, calories, ingredients, source }) => {
     return (
         <div
             data-aos="fade-up"
@@ -53,7 +53,7 @@ const Recipe = ({ label, url, image, calories, ingredients }) => {
                     transform: translateX(-2rem);
 
                     h1 {
-                        font-size: 1.5rem;
+                        font-size: 1.2rem;
                     }
 
                     @media only screen and (max-width: 600px) {
@@ -63,7 +63,11 @@ const Recipe = ({ label, url, image, calories, ingredients }) => {
                 data-aos-delay="100"
                 className="recipe__body"
             >
-                <h1 className="recipe__title">{label}</h1>
+                <h1 className="recipe__title">
+                    {label.substring(0, 45)}
+                    {label.length >= 45 ? "..." : null}
+                </h1>
+                <p>by {source}</p>
                 <p>{Math.floor(calories)} calories</p>
                 <a href={url}>
                     <button

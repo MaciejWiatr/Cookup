@@ -18,9 +18,21 @@ const queryReducer = (state = "", action) => {
     }
 };
 
+const loadingReducer = (state = false, action) => {
+    switch (action.type) {
+        case "LOADING_ON":
+            return true;
+        case "LOADING_OFF":
+            return false;
+        default:
+            return state;
+    }
+};
+
 const allReducers = combineReducers({
     results: resultsReducer,
     query: queryReducer,
+    loading: loadingReducer,
 });
 
 export default allReducers;

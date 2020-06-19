@@ -4,14 +4,24 @@
     box-sizing: border-box;
 
     .search__form {
-        box-sizing: border-box;
+        // box-sizing: border-box;
         height: 100%;
         width: 100%;
         text-align: center;
 
         input {
-            box-sizing: border-box;
-            height: 100%;
+            // box-sizing: border-box;
+            height: 0.8rem;
+            width: 40%;
+            max-width: 500px;
+            // transition: all 0.25s ease;
+            &:focus {
+                // border: 1px solid #ffb5a7;
+                outline: none;
+            }
+            @media (max-width: 600px) {
+                width: 300px;
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "./Components/Sidebar.scss";
 import SearchForm from "./Components/SearchForm";
 import RecipeList from "./Components/RecipeList";
+import Footer from "./Components/Footer";
 
 const App = (props) => {
     return (
@@ -27,6 +28,7 @@ const App = (props) => {
             </header>
             <SearchForm />
             <RecipeList />
+            <Footer />
         </div>
     );
 };
