@@ -1,12 +1,14 @@
-import React from "react";
+/** @jsx jsx */
 import "./SearchForm.scss";
-import { useDispatch } from "react-redux";
-import { update } from "../actions";
+import { useDispatch, useSelector } from "react-redux";
+import { updateResults, updateQuery } from "../actions";
 import axios from "axios";
-import { useState } from "react";
+import { css, jsx } from "@emotion/core";
+// import { useState } from "react";
 
 const SearchForm = (props) => {
-    const [query, setQuery] = useState();
+    const query = useSelector((state) => state.query);
+
     const dispatch = useDispatch();
 
     const fetchRecipes = async (q) => {
@@ -27,11 +29,16 @@ const SearchForm = (props) => {
                         calories: recipe.calories,
                     };
                 });
-            dispatch(update(recipes));
+            dispatch(updateResults(recipes));
         }
     };
     return (
-        <div className="search__container">
+        <div
+            css={css`
+                margin-bottom: 2rem;
+            `}
+            className="search__container"
+        >
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -40,12 +47,18 @@ const SearchForm = (props) => {
                 className="search__form"
             >
                 <input
+                    css={css`
+                        border: none;
+                        box-shadow: 0px 20px 37px 10px rgba(0, 0, 0, 0.1);
+                        /* border: 0.15rem solid #595550; */
+                        border-radius: 2rem;
+                        padding: 1.5rem;
+                    `}
                     type="text"
                     name="q"
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => dispatch(updateQuery(e.target.value))}
                     value={query ? query : ""}
                 />
-                <button type="submit">Search</button>
             </form>
         </div>
     );

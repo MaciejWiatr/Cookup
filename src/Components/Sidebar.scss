@@ -1,18 +1,27 @@
-.sidebar__container {
+.app__container {
     min-height: 100vh;
     box-sizing: border-box;
     padding: 1rem;
-    width: 50vw;
+    width: 100%;
     margin: 0;
-    background-color: grey;
+    background-color: #f8edeb;
+    // background-color: grey;
 
-    .sidebar__header {
+    .app__header {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         .header__title {
-            margin: 1rem;
+            font-size: 3rem;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                transform: translateY(-2px);
+            }
         }
         .header__subtitle {
             margin: 0rem;
