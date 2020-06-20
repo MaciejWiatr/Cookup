@@ -11,7 +11,7 @@
 
         input {
             // box-sizing: border-box;
-            height: 0.8rem;
+            height: 0.7rem;
             width: 40%;
             max-width: 500px;
             // transition: all 0.25s ease;
@@ -20,7 +20,7 @@
                 outline: none;
             }
             @media (max-width: 600px) {
-                width: 300px;
+                width: 80%;
             }
         }
     }

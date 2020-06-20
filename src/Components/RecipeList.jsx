@@ -27,7 +27,7 @@ const RecipeList = (props) => {
                     css={css`
                         /* min-height: 100%; */
                         min-height: 100vh;
-                        width: 100%;
+                        width: 100vw;
                         box-sizing: border-box;
                         display: grid;
                         grid-template-columns: repeat(
