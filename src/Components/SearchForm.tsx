@@ -1,19 +1,22 @@
 /** @jsx jsx */
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { updateResults, updateQuery, loadingOn, loadingOff } from "../actions";
 import axios from "axios";
 import { css, jsx } from "@emotion/core";
+import { ChangeEvent } from "react";
+import RecipeInterface from "../Interfaces/RecipeInterface";
 
-const SearchForm = (props) => {
-    const query = useSelector((state) => state.query);
+const SearchForm: React.FC = () => {
+    const query = useSelector((state: RootStateOrAny) => state.query);
 
     const dispatch = useDispatch();
 
-    const handleQueryInput = (event) => {
-        dispatch(updateQuery(event.target.value));
+    const handleQueryInput = (event: ChangeEvent<HTMLInputElement>) => {
+        const inputEl = event.target as HTMLInputElement;
+        dispatch(updateQuery(inputEl.value));
     };
 
-    const fetchRecipes = async (q) => {
+    const fetchRecipes = async (q: string) => {
         if (!q) {
             return;
         }
@@ -25,8 +28,8 @@ const SearchForm = (props) => {
 
         if (data.status === 200) {
             const recipes = data.data.hits
-                .map((hit) => hit.recipe)
-                .map((recipe) => {
+                .map((hit: { recipe: object }) => hit.recipe)
+                .map((recipe: RecipeInterface) => {
                     return {
                         label: recipe.label,
                         url: recipe.url,
@@ -51,7 +54,7 @@ const SearchForm = (props) => {
             className="search__container"
         >
             <form
-                onSubmit={(e) => {
+                onSubmit={(e: any) => {
                     e.preventDefault();
                     fetchRecipes(e.target.elements.q.value);
                 }}

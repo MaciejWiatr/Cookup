@@ -1,7 +1,11 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-const RecipeButton = ({ text }) => {
+interface IProps {
+    text: string;
+}
+
+const RecipeButton: React.FC<IProps> = ({ text }) => {
     return (
         <button
             css={css`

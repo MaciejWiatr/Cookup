@@ -1,11 +1,13 @@
-export const updateResults = (results) => {
+import RecipeInterface from "./Interfaces/RecipeInterface";
+
+export const updateResults = (results: RecipeInterface[]) => {
     return {
         type: "UPDATE_RESULTS",
         payload: results,
     };
 };
 
-export const updateQuery = (q) => {
+export const updateQuery = (q: string) => {
     return {
         type: "UPDATE_QUERY",
         payload: q,

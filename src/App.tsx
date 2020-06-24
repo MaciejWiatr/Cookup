@@ -3,8 +3,9 @@ import SearchForm from "./Components/SearchForm";
 import RecipeList from "./Components/RecipeList";
 import Footer from "./Components/Footer";
 import { css, jsx } from "@emotion/core";
+import { FunctionComponent } from "react";
 
-const App = (props) => {
+const App: FunctionComponent = () => {
     return (
         <div
             css={css`

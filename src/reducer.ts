@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
+import ActionInterface from "./Interfaces/ActionInterface";
 
-const resultsReducer = (state = [], action) => {
+const resultsReducer = (state = [], action: ActionInterface) => {
     switch (action.type) {
         case "UPDATE_RESULTS":
             return action.payload;
@@ -9,7 +10,7 @@ const resultsReducer = (state = [], action) => {
     }
 };
 
-const queryReducer = (state = "", action) => {
+const queryReducer = (state = "", action: ActionInterface) => {
     switch (action.type) {
         case "UPDATE_QUERY":
             return action.payload;
@@ -18,7 +19,7 @@ const queryReducer = (state = "", action) => {
     }
 };
 
-const loadingReducer = (state = false, action) => {
+const loadingReducer = (state = false, action: ActionInterface) => {
     switch (action.type) {
         case "LOADING_ON":
             return true;

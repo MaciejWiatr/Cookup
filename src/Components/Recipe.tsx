@@ -1,7 +1,17 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import RecipeButton from "./RecipeButton";
-const Recipe = ({ label, url, image, calories, ingredients, source }) => {
+import { FC } from "react";
+import RecipeInterface from "../Interfaces/RecipeInterface";
+
+const Recipe: FC<RecipeInterface> = ({
+    label,
+    url,
+    image,
+    calories,
+    ingredientLines,
+    source,
+}) => {
     return (
         <div
             data-aos="fade-up"

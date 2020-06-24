@@ -2,15 +2,16 @@
 import { useEffect } from "react";
 import Recipe from "./Recipe";
 import LoadingSpinner from "./LoadingSpinner";
-import { useSelector } from "react-redux";
+import { useSelector, RootStateOrAny } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { css, jsx } from "@emotion/core";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import RecipeInterface from "../Interfaces/RecipeInterface";
 
-const RecipeList = (props) => {
-    const recipes = useSelector((state) => state.results);
-    const loading = useSelector((state) => state.loading);
+const RecipeList: React.FC = () => {
+    const recipes = useSelector((state: RootStateOrAny) => state.results);
+    const loading = useSelector((state: RootStateOrAny) => state.loading);
     useEffect(() => {
         AOS.init();
     }, []);
@@ -32,7 +33,7 @@ const RecipeList = (props) => {
                     `}
                     className="recipe-list__wrapper"
                 >
-                    {recipes.map((recipe) => (
+                    {recipes.map((recipe: RecipeInterface) => (
                         <Recipe key={uuidv4()} {...recipe}></Recipe>
                     ))}
                 </div>
