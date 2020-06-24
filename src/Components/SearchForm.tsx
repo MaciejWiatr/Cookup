@@ -3,7 +3,7 @@ import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { updateResults, updateQuery, loadingOn, loadingOff } from "../actions";
 import axios from "axios";
 import { css, jsx } from "@emotion/core";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import RecipeInterface from "../Interfaces/RecipeInterface";
 
 const SearchForm: React.FC = () => {
@@ -54,9 +54,9 @@ const SearchForm: React.FC = () => {
             className="search__container"
         >
             <form
-                onSubmit={(e: any) => {
+                onSubmit={(e: FormEvent<HTMLFormElement>) => {
                     e.preventDefault();
-                    fetchRecipes(e.target.elements.q.value);
+                    fetchRecipes(query);
                 }}
                 css={css`
                     height: 100%;

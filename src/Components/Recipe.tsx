@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import RecipeButton from "./RecipeButton";
-import { FC } from "react";
 import RecipeInterface from "../Interfaces/RecipeInterface";
 
-const Recipe: FC<RecipeInterface> = ({
+const Recipe: React.FC<RecipeInterface> = ({
     label,
     url,
     image,

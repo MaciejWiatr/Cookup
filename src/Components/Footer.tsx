@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-const Footer = () => {
+const Footer: React.FC = () => {
     return (
         <div
             css={css`

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from "@emotion/core";
 
-const LoadingSpinner = () => {
+const LoadingSpinner: React.FC = () => {
     const spin = keyframes`
     to{
         transform: rotate(360deg);
