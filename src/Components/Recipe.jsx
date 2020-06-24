@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import RecipeButton from "./RecipeButton";
 const Recipe = ({ label, url, image, calories, ingredients, source }) => {
     return (
         <div
@@ -46,7 +47,12 @@ const Recipe = ({ label, url, image, calories, ingredients, source }) => {
                 `}
                 className="recipe__image"
             >
-                <img data-aos="zoom-in" src={image} alt={`${label}`}></img>
+                <img
+                    data-aos="zoom-in"
+                    data-aos-offset="0"
+                    src={image}
+                    alt={`${label}`}
+                ></img>
             </div>
             <div
                 css={css`
@@ -88,26 +94,8 @@ const Recipe = ({ label, url, image, calories, ingredients, source }) => {
                     {label.length >= 45 ? "..." : null}
                 </h1>
                 <p>by {source}</p>
-                <p>{Math.floor(calories)} calories</p>
                 <a href={url}>
-                    <button
-                        css={css`
-                            background-color: #ffb5a7;
-                            border: none;
-                            color: white;
-                            padding: 0.5rem 1rem;
-                            border-radius: 5px;
-                            transition: 0.25s ease background-color,
-                                0.25s ease transform;
-                            &:hover {
-                                transform: scale(1.1);
-                                cursor: pointer;
-                                background-color: #eea4a6;
-                            }
-                        `}
-                    >
-                        Go to
-                    </button>
+                    <RecipeButton text="Go to" />
                 </a>
             </div>
         </div>

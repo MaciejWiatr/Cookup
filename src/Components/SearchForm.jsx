@@ -1,10 +1,8 @@
 /** @jsx jsx */
-import "./SearchForm.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { updateResults, updateQuery, loadingOn, loadingOff } from "../actions";
 import axios from "axios";
 import { css, jsx } from "@emotion/core";
-// import { useState } from "react";
 
 const SearchForm = (props) => {
     const query = useSelector((state) => state.query);
@@ -45,6 +43,9 @@ const SearchForm = (props) => {
     return (
         <div
             css={css`
+                width: 100%;
+                height: 2rem;
+                box-sizing: border-box;
                 margin-bottom: 2rem;
             `}
             className="search__container"
@@ -54,10 +55,26 @@ const SearchForm = (props) => {
                     e.preventDefault();
                     fetchRecipes(e.target.elements.q.value);
                 }}
+                css={css`
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                `}
                 className="search__form"
             >
                 <input
                     css={css`
+                        height: 0.7rem;
+                        width: 40%;
+                        max-width: 500px;
+                        // transition: all 0.25s ease;
+                        &:focus {
+                            // border: 1px solid #ffb5a7;
+                            outline: none;
+                        }
+                        @media (max-width: 600px) {
+                            width: 60%;
+                        }
                         border: none;
                         box-shadow: 0px 20px 37px 10px rgba(0, 0, 0, 0.1);
                         border-radius: 2rem;
